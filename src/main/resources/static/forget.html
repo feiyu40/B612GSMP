@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>B612信息公开监督管理平台</title>
+
+    <!-- ================= Favicon ================== -->
+    <!-- Styles -->
+    <link rel="stylesheet" href="cj/assets/css/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="cj/assets/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="cj/assets/css/lib/themify-icons.css">
+    <link rel="stylesheet" href="cj/assets/css/lib/unix.css">
+    <link rel="stylesheet" href="cj/assets/css/style.css">
+</head>
+
+<body class="bg-primary">
+
+<div class="unix-login">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-lg-offset-3">
+                <div class="login-content">
+                    <div class="login-logo">
+                    </div>
+                    <div class="login-form">
+                        <h3 style="color: #5d7d8c;">Forget Password</h3>
+                        <form>
+                            <div class="form-group">
+                                <label style="font-family: Georgia;color: #5d7d8c;">邮箱</label>
+                                <div class="row">
+                                    <input type="email" id="forget_email" class="form-control" style="width: 78%;float: left;margin-left: 1%;"placeholder="请输入绑定邮箱地址">
+                                    <button type="button"  class="btn btn-primary m-b-10 m-l-5" id="forget_post_email" style="width: 18%;padding: 10px;">发送验证码</button>
+                                </div>
+                            </div>
+                            <div class="error_box" id="error_forget_email" style="margin-bottom: 2%;"></div>
+                            <div class="form-group">
+                                <label style="font-family: Georgia;color: #5d7d8c;">验证码</label>
+                                <input id="forget_email_yanzheng" class="form-control" placeholder="请输入收到验证码" >
+                            </div>
+                            <div class="form-group">
+                                <label style="font-family: Georgia;color: #5d7d8c;">新密码</label>
+                                <input id="forget_password" type="password" class="form-control" placeholder="设置新的密码(6-20个字符)">
+                            </div>
+                            <div class="form-group">
+                                <label style="font-family: Georgia;color: #5d7d8c;">确认密码</label>
+                                <input id="forget_password2" type="password" class="form-control" placeholder="再次输入新的密码">
+                            </div>
+                            <div class="error_box" id="forget_error"></div>
+                            <button type="button" class="btn btn-primary btn-rounded m-b-30 m-t-30" id="forget">确      认</button>
+                        </form>
+                        <div class="register-link text-center">
+                            <p>返回 <a href=".">登录</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="cj/assets/js/lib/jquery.min.js"></script>
+<script src="cj/assets/js/lib/forget.js"></script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>测试主页</title>
+    <link>
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <script src="layui/layui.js"></script>
+</head>
+<body>
+<h1>测试主页</h1>
+<div>
+    <a id="btnLoadData" class="layui-btn">显示数据</a>
+    <div><table id="tabTest"></table></div>
+</div>
+
+<script>
+    layui.use(['table','element','layer'],function () {
+        var $=layui.$,
+            table = layui.table,
+            layer = layui.layer,
+            element = layui.element;
+        $("#btnLoadData").click(loadData);
+
+        function loadData() {
+            table.render({
+                elem: '#tabTest', url: 'list/',page:true
+                , cols: [[{title: '标题', field: 'title'}
+                    , {title: '原价', field: 'originalCost'}
+                    , {title: '现价', field: 'currentPrice'}
+                    , {title: '折扣', field: 'discount'}
+                ]]
+            });
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>拾方政企联合云平台</title>
+
+    <!-- ================= Favicon ================== -->
+   {% load static %}
+
+    <link href="{% static 'login/assets/css/lib/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'login/assets/css/lib/themify-icons.css'%}" rel="stylesheet">
+    <link href="{% static 'login/assets/css/lib/unix.css' %}" rel="stylesheet">
+    <link href="{% static 'login/assets/css/lib/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'login/assets/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'login/assets/css/lib/menubar/sidebar.css'%}" rel='stylesheet' >
+
+    <link href="{% static 'login/assets/css/lib/sweetalert/sweetalert.css'%}" rel="stylesheet">
+</head>
+
+<body>
+	<!--左菜单栏-->
+    <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+        <div class="nano">
+            <div class="nano-content">
+                  <ul>
+                    <li class="label">Module</li>
+                    <li ><a class="sidebar-sub-toggle"><i class="ti-pencil-alt"></i>风控模型管理 <span class="badge badge-primary"></span><span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                        <ul>
+                            <li><a href="module_query">风控模型查询</a></li>
+                            <li><a href="module_charts">模型使用统计</a></li>
+                            <li><a href="module_add">模型安装</a></li>
+                            <li><a href="module_train">模型训练</a></li>
+                        </ul>
+                    </li>
+                     <li class="label">Node</li>
+                    <li><a class="sidebar-sub-toggle"><i class="ti-calendar"></i> 节点监控 <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                        <ul>
+                            <li><a href="node_state">节点信息</a></li>
+                            <li><a href="event_monitor">事件监控</a></li>
+                            <li><a href="log_config">日志管理</a></li>
+                            <li><a href="fuzai_monitor">负载监控</a></li>
+                        </ul>
+                    </li>
+                    <li class="label">calculate</li>
+                    <li class="active"><a class="sidebar-sub-toggle"><i class="ti-layout-grid2-alt"></i>计算中心<span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                        <ul>
+                            <li><a href="message_fang_lang">计算申请</a></li>
+                            <li><a href="message_ti_lang">计算任务管理</a></li>
+                        </ul>
+                    </li>
+                    <li class="label">Person</li>
+                    <li ><a class="sidebar-sub-toggle"><i class="ti-user"></i>个人中心<span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                        <ul>
+                            <li><a href="alter_message_lang">个人信息</a></li>
+                            <li><a href="alter_password_lang">修改密码</a></li>
+                            <li class="sweet-confirm"><a >注销账号</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--上栏-->
+    <div class="header">
+        <div class="pull-left">
+            <div class="logo"><a href="">
+            <img src="../../static/login/assets/images/logo2.png" style="width: 217px;height: 40px;margin-left: 20px;" alt="" />
+            </a></div>
+            <div class="hamburger sidebar-toggle">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </div>
+        </div>
+        <div class="pull-right p-r-15">
+            <ul>
+            	<!--搜索-->
+                <li class="header-icon dib"><a href="#search"><i class="ti-search"></i></a></li>
+                <!--消息提示-->
+                <li class="header-icon dib"><i class="ti-bell"></i>
+                    <div class="drop-down">
+                        <div class="dropdown-content-heading">
+                            <span class="text-left">Recent Notifications</span>
+                        </div>-
+                        <div class="dropdown-content-body">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
+                                        <div class="notification-content">
+                                            <small class="notification-timestamp pull-right">02:34 PM</small>
+                                            <div class="notification-heading">Mr. Saifun</div>
+                                            <div class="notification-text">5 members joined today </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="text-center">
+                                    <a href="#" class="more-link">See All</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <!--邮件-->
+                <li class="header-icon dib"><i class="ti-email"></i>
+                    <div class="drop-down">
+                        <div class="dropdown-content-heading">
+                            <span class="text-left">2 New Messages</span>
+                            <a href="email.html"><i class="ti-pencil-alt pull-right"></i></a>
+                        </div>
+                        <div class="dropdown-content-body">
+                            <ul>
+                                <li class="notification-unread">
+                                    <a href="#">
+                                        <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/1.jpg" alt="" />
+                                        <div class="notification-content">
+                                            <small class="notification-timestamp pull-right">02:34 PM</small>
+                                            <div class="notification-heading">Saiul Islam</div>
+                                            <div class="notification-text">Hi Teddy, Just wanted to let you ...</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="text-center">
+                                    <a href="#" class="more-link">See All</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <!--个人操作-->
+                <li class="header-icon dib"><img class="avatar-img" src="../../static/login/assets/images/touxiang.jpg" alt="" /> <span class="user-avatar">Mr.A <i class="ti-angle-down f-s-10"></i></span>
+                    <div class="drop-down dropdown-profile">
+                        <div class="dropdown-content-heading">
+                            <span class="text-left">Upgrade Now</span>
+                            <p class="trial-day">30 Days Trail</p>
+                        </div>
+                        <div class="dropdown-content-body">
+                            <ul> 
+                                <li><a href="alter-password.html"><i class="ti-user"></i> <span>修改密码</span></a></li>
+                                <li onclick="zhuxiao()"><a href="#"><i class="ti-wallet" ></i> <span>账号注销</span></a></li>
+                                <li><a href=""><i class="ti-write"></i> <span>账号退出</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--内容-->
+    <div class="content-wrap">
+        <div class="main">
+            <div class="container-fluid">
+
+                <!-- /# row -->
+                <section id="main-content">
+                    <div class="row">
+                        <div class="col-lg-12">
+
+                            <div class="card alert">
+                                <div class="card-header">
+                                    <a href="message_fang_lang"><h4><i class="ti-arrow-left"></i> 返回</h4></a>
+                                </div>
+                                <div class="card-body">
+                                    <div class="user-profile m-t-15">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <div class="user-photo m-b-30">
+                                                    <img class="img-responsive" src="assets/images/user-profile.jpg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-8">
+                                                <div class="custom-tab user-profile-tab">
+                                                    <ul class="nav nav-tabs" role="tablist">
+                                                        <li role="presentation" class="active"><a href="#1" aria-controls="1" role="tab" data-toggle="tab">About</a></li>
+                                                    </ul>
+                                                    <div class="tab-content">
+                                                        <div role="tabpanel" class="tab-pane active" id="1">
+                                                            <div class="contact-information">
+                                                                <div class="phone-content">
+                                                                    <span class="contact-title"> 项目编号:</span>
+                                                                    <span  id="mfdl_no">ZXW235678928</span>
+                                                                </div>
+                                                                <div class="skype-content">
+                                                                    <span class="contact-title"> 申请内容:</span>
+                                                                    <span id="mfdl_desc">申请开启税务数据库family表权限</span>
+                                                                </div>
+                                                                <div class="address-content">
+                                                                    <span class="contact-title"> 申请时间:</span>
+                                                                    <span id="mfdl_time">2020-4-10 9:27</span>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <span class="contact-title">接入模型编号:</span>
+                                                                    <div >
+                                                                        <input class="form-control" style="width: 50%;"  id="mfdl_module" placeholder="请选择已训练模型">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="contact-title"> upload配置文件:</label>
+                                                                        <div class="form-control file-input dark-browse-input-box" style="width: 50%;">
+                                                                            <label for="inputFile-2">
+                                                                                    <span class="btn btn-danger dark-input-button">
+                                                                                        <input type="file" id="inputFile-2" onchange="this.parentNode.parentNode.nextElementSibling.value = this.value">
+                                                                                        <i class="fa fa-file-archive-o"></i>
+                                                                                    </span>
+                                                                             </label>
+                                                                            <input class="file-name input-flat" type="text" readonly="readonly" placeholder="Browse Files"  id="mfdl_file">
+                                                                        </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label class="contact-title"> predict配置文件:</label>
+                                                                        <div class="form-control file-input dark-browse-input-box" style="width: 50%;">
+                                                                            <label for="inputFile-2">
+                                                                                    <span class="btn btn-danger dark-input-button">
+                                                                                        <input type="file" id="inputFile-2" onchange="this.parentNode.parentNode.nextElementSibling.value = this.value">
+                                                                                        <i class="fa fa-file-archive-o"></i>
+                                                                                    </span>
+                                                                             </label>
+                                                                            <input class="file-name input-flat" type="text" readonly="readonly" placeholder="Browse Files"  id="mfdl_file2">
+                                                                        </div>
+                                                                </div>
+                                                                <br>
+                                                                <br>
+                                                                <div style="position:relative;";>
+                                                                    <button type="button" id="mfdl_sure" class="btn btn-primary m-b-10 m-l-5" >&nbsp&nbsp&nbsp&nbsp确&nbsp&nbsp&nbsp&nbsp定&nbsp&nbsp&nbsp&nbsp</button>
+                                                                </div>
+                                                                <br>
+                                                                <br>
+                                                                <br>
+                                                                <br>
+                                                                <br>
+                                                                <br>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /# card -->
+                        </div>
+                    </div>
+                    <!--尾注释-->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="footer">
+                                <p>界面数据截止到 <span id="date-time"></span> <a href="#" class="page-refresh">刷新界面</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <!--搜索-->
+    <div id="search">
+        <button type="button" class="close">×</button>
+        <form>
+            <input type="search" value="" placeholder="type keyword(s) here" />
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+    </div>
+
+	<!--尚未修改-->
+    <!-- jquery vendor -->
+    <script src="../../static/login/assets/js/lib/jquery.min.js"></script>
+    <script src="../../static/login/assets/js/lib/jquery.nanoscroller.min.js"></script>
+    <!-- nano scroller -->
+    <script src="../../static/login/assets/js/lib/menubar/sidebar.js"></script>
+    <script src="../../static/login/assets/js/lib/preloader/pace.min.js"></script>
+    <!-- sidebar -->
+    <script src="../../static/login/assets/js/lib/bootstrap.min.js"></script>
+    <!-- bootstrap -->
+    <script src="../../static/login/assets/js/scripts.js"></script>
+    <script src="../../static/login/assets/js/lib/invoice-edit.js"></script>
+    <script src="../../static/login/assets/js/lib/sweetalert/sweetalert.min.js"></script>
+    <script src="../../static/login/assets/js/lib/sweetalert/zhuxiao.js"></script>
+    <script src="../../static/login/assets/js/lib/detail.js"></script>
+
+</body>
+
+</html>

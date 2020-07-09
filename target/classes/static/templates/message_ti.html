@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>拾方政企联合云平台</title>
+
+    <!-- ================= Favicon ================== -->
+
+    {% load static %}
+    <!-- Styles -->
+    <link href="{% static 'login/assets/css/lib/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'login/assets/css/lib/themify-icons.css'%}" rel="stylesheet">
+    <link href="{% static 'login/assets/css/lib/unix.css' %}" rel="stylesheet">
+    <link href="{% static 'login/assets/css/lib/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'login/assets/css/lib/toastr/toastr.min.css' %}" rel="stylesheet">
+    <link href="{% static 'login/assets/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'login/assets/css/lib/menubar/sidebar.css'%}" rel="stylesheet">
+    <link href="{% static 'login/assets/css/lib/sweetalert/sweetalert.css'%}" rel="stylesheet">
+
+</head>
+
+<body>
+	<!--左菜单栏-->
+   <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+        <div class="nano">
+            <div class="nano-content">
+                <ul>
+                    <li class="label">Manage</li>
+                    <li><a class="sidebar-sub-toggle"><i class="ti-home"></i> 数据使用管理 <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                        <ul>
+                            <li><a href="gover">数据使用查询</a></li>
+                            <li><a href="data_charts">数据使用统计</a></li>
+                        </ul>
+                    </li>
+                    <li class="label">Data</li>
+                    <li><a class="sidebar-sub-toggle"><i class="ti-panel"></i>授权数据管理<span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                        <ul>
+                            <li><a href="data_manage">数据明细</a></li>
+                            <li><a href="data_add">添加数据</a></li>
+                        </ul>
+                    </li>
+                    <li class="label">calculate</li>
+                    <li   class="active"><a class="sidebar-sub-toggle"><i class="ti-layout-grid2-alt"></i>计算中心<span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                        <ul>
+                            <li><a href="message_fang">数据申请</a></li>
+                            <li><a href="message_ti">提示通知</a></li>
+                        </ul>
+                    </li>
+                    <li class="label">Person</li>
+                    <li ><a class="sidebar-sub-toggle"><i class="ti-user"></i>个人中心<span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                        <ul>
+                            <li><a href="alter_message">个人信息</a></li>
+                            <li><a href="alter_password">修改密码</a></li>
+                            <li class="sweet-confirm"><a >注销账号</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+     <!--上栏-->
+    <div class="header">
+        <div class="pull-left">
+            <div class="logo"><a href="">
+            <img src="../../static/login/assets/images/logo2.png" style="width: 217px;height: 40px;margin-left: 20px;" alt="" />
+            </a>
+            </div>
+            <div class="hamburger sidebar-toggle">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </div>
+        </div>
+        <div class="pull-right p-r-15">
+            <ul>
+            	<!--搜索-->
+                <li class="header-icon dib"><a href="#search"><i class="ti-search"></i></a></li>
+                <!--消息提示-->
+                <li class="header-icon dib"><i class="ti-bell"></i>
+                    <div class="drop-down">
+                        <div class="dropdown-content-heading">
+                            <span class="text-left">Recent Notifications</span>
+                        </div>
+                        <div class="dropdown-content-body">
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <img class="pull-left m-r-10 avatar-img" src="../../static/login/assets/images/avatar/3.jpg" alt="" />
+                                        <div class="notification-content">
+                                            <small class="notification-timestamp pull-right">02:34 PM</small>
+                                            <div class="notification-heading">{{data.username}}</div>
+                                            <div class="notification-text">5 members joined today </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="text-center">
+                                    <a href="#" class="more-link">See All</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <!--邮件-->
+                <li class="header-icon dib"><i class="ti-email"></i>
+                    <div class="drop-down">
+                        <div class="dropdown-content-heading">
+                            <span class="text-left">2 New Messages</span>
+                            <a href="email.html"><i class="ti-pencil-alt pull-right"></i></a>
+                        </div>
+                        <div class="dropdown-content-body">
+                            <ul>
+                                <li class="notification-unread">
+                                    <a href="#">
+                                        <img class="pull-left m-r-10 avatar-img" src="../../static/login/assets/images/touxiang.jpg" alt="" />
+                                        <div class="notification-content">
+                                            <small class="notification-timestamp pull-right">02:34 PM</small>
+                                            <div class="notification-heading">Saiul Islam</div>
+                                            <div class="notification-text">Hi Teddy, Just wanted to let you ...</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="text-center">
+                                    <a href="#" class="more-link">See All</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <!--个人操作-->
+                <li class="header-icon dib"><img class="avatar-img" src="../../static/login/assets/images/touxiang.jpg" alt="" /> <span class="user-avatar" id="top_usename">Saifun <i class="ti-angle-down f-s-10"></i></span>
+                    <div class="drop-down dropdown-profile">
+                        <div class="dropdown-content-heading">
+                            <span class="text-left">Upgrade Now</span>
+                            <p class="trial-day">30 Days Trail</p>
+                        </div>
+                        <div class="dropdown-content-body">
+                            <ul>
+                                <li><a href="alter_password"><i class="ti-user"></i> <span>修改密码</span></a></li>
+                                <li onclick="zhuxiao()"><a href="#"><i class="ti-close" ></i> <span>账号注销</span></a></li>
+                                <li><a href="logout"><i class="ti-write"></i> <span>账号退出</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--内容-->
+     <div class="content-wrap">
+        <div class="main">
+            <div class="container-fluid">
+            	<!--欢迎栏-->
+                <div class="row">
+                    <div class="col-lg-8 p-r-0 title-margin-right">
+                        <div class="page-header">
+                            <div class="page-title">
+                                <h1>Hello, <span>Welcome Here</span></h1>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /# column -->
+                    <div class="col-lg-4 p-l-0 title-margin-left">
+                        <div class="page-header">
+                            <div class="page-title">
+                                <ol class="breadcrumb text-right">
+                                    <li><a href="#">个人中心</a></li>
+                                    <li class="active">提示中心</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-content">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card alert">
+                                <div class="card-body">
+                                    <div class="compose-email">
+                                        <div class="mail-box">
+                                            <aside class="lg-side">
+                                                <div class="inbox-head">
+                                                    <h3 class="input-text">提示中心</h3>
+                                                    <form action="#" class="pull-right position">
+                                                        <div class="input-append inner-append">
+                                                            <input type="text" class="sr-input" placeholder="Search task">
+                                                            <button class="btn sr-btn append-btn" type="button"><i class="fa fa-search"></i></button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="mail-option">
+                                                    <div class="chk-all chk-group">
+                                                        <input type="checkbox" class="mail-checkbox mail-group-checkbox" id="checkAll" />
+                                                        <div class="btn-group">
+                                                            <a data-toggle="dropdown" href="#" class="btn mini all m-l-10" aria-expanded="false">All<i class="fa fa-angle-down "></i></a>
+                                                            <ul class="card-option-dropdown dropdown-menu">
+                                                                <li><a href="#"> None</a></li>
+                                                                <li><a href="#"> Read</a></li>
+                                                                <li><a href="#"> Unread</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="btn-group">
+                                                        <a data-original-title="Refresh" data-placement="top" data-toggle="dropdown" href="#" class="btn mini tooltips">
+                                                            <i class=" fa fa-refresh"></i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="btn-group hidden-phone">
+                                                        <a data-toggle="dropdown" href="#" class="btn mini blue" aria-expanded="false"> More<i class="fa fa-angle-down "></i></a>
+
+                                                        <ul class="card-option-dropdown dropdown-menu">
+                                                            <li><a href="#"><i class="ti-pencil"></i> Mark as Read</a></li>
+                                                            <li><a href="#"><i class="ti-menu-alt"></i>Spam</a></li>
+                                                            <li><a href="#"><i class="ti-trash"></i>Delete</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="btn-group">
+                                                        <a data-toggle="dropdown" href="#" class="btn mini blue">Move to<i class="fa fa-angle-down "></i></a>
+                                                        <ul class="card-option-dropdown dropdown-menu">
+                                                            <li><a href="#">Draft</a></li>
+                                                            <li><a href="#">Spam</a></li>
+                                                            <li><a href="#"> Delete</a></li>
+                                                        </ul>
+                                                    </div>
+
+                                                    <ul class="unstyled inbox-pagination pagination-list">
+                                                        <li><span>1-50 of 234</span></li>
+                                                        <li>
+                                                            <a class="np-btn" href="#"><i class="fa fa-angle-left  pagination-left"></i></a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="np-btn" href="#"><i class="fa fa-angle-right pagination-right"></i></a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="table-responsive">
+                                                    <table class="table table-inbox table-hover table-responsive">
+                                                        <tbody>
+                                                            <!--wei du-->
+                                                            <tr class="unread">
+                                                                <td class="inbox-small-cells">
+                                                                    <input type="checkbox" class="mail-checkbox">
+                                                                </td>
+                                                                <td class="inbox-small-cells"><i class="ti-star"></i></td>
+                                                                <td class="view-message  dont-show">ZXW235678932</td>
+                                                                <td class="view-message ">'税务数据库(db_3285)credit_card表数据申请'</td>
+                                                                <td> <span class="badge badge-danger pull-right m-t-6">Error</span></td>
+                                                                <td class="view-message  text-right">2020-4-12 14:20 </td>
+                                                            </tr>
+                                                            <tr class="unread">
+                                                                <td class="inbox-small-cells">
+                                                                    <input type="checkbox" class="mail-checkbox">
+                                                                </td>
+                                                                <td class="inbox-small-cells"><i class="ti-star"></i></td>
+                                                                <td class="view-message  dont-show">ZXW235678937</td>
+                                                                <td class="view-message ">'贷款数据库(db_3266)house_loan表数据申请'</td>
+                                                                <td> <span class="badge badge-success pull-right m-t-6">success</span></td>
+                                                                <td class="view-message  text-right">2020-4-12 14:20 </td>
+                                                            </tr>
+                                                            <tr class="">
+                                                                <td class="inbox-small-cells">
+                                                                    <input type="checkbox" class="mail-checkbox">
+                                                                </td>
+                                                                <td class="inbox-small-cells"><i class="ti-star"></i></td>
+                                                                <td class="view-message  dont-show">ZXW236318936</td>
+                                                                <td class="view-message ">'税务数据库(db_3285)credit_card表数据申请'</td>
+                                                                <td><span class="badge badge-success pull-right m-t-6">success</span></td>
+                                                                <td class="view-message text-right">2020-3-21 17.20</td>
+                                                            </tr>
+                                                            <tr class="">
+                                                                <td class="inbox-small-cells">
+                                                                    <input type="checkbox" class="mail-checkbox">
+                                                                </td>
+                                                                <td class="inbox-small-cells"><i class="ti-star"></i></td>
+                                                                <td class="view-message  dont-show">ZXW235675421</td>
+                                                                <td class="view-message ">'贷款数据库(db_3266)house_loan表数据申请'</td>
+                                                                <td><span class="badge badge-success pull-right m-t-6">success</span></td>
+                                                                <td class="view-message text-right">2020-3-21</td>
+                                                            </tr>
+                                                            <tr class="">
+                                                                <td class="inbox-small-cells">
+                                                                    <input type="checkbox" class="mail-checkbox">
+                                                                </td>
+                                                                <td class="inbox-small-cells"><i class="ti-star inbox-started"></i></td>
+                                                                <td class="view-message  dont-show">ZXW235676532</td>
+                                                                <td class="view-message ">'税务数据库(db_3285)credit_card表数据申请'</td>
+                                                                <td><span class="badge badge-success pull-right m-t-6">success</span></td>
+                                                                <td class="view-message text-right">2020-3-21</td>
+                                                            </tr>
+                                                            <tr class="">
+                                                                <td class="inbox-small-cells">
+                                                                    <input type="checkbox" class="mail-checkbox">
+                                                                </td>
+                                                                <td class="inbox-small-cells"><i class="ti-star inbox-started"></i></td>
+                                                                <td class="view-message  dont-show">ZXW175678553</td>
+                                                                <td class="view-message ">'税务数据库(db_3285)credit_card表数据申请'</td>
+                                                                <td><span class="badge badge-success pull-right m-t-6">success</span></td>
+                                                                <td class="view-message text-right">2020-3-20</td>
+                                                            </tr>
+                                                            <tr class="">
+                                                                <td class="inbox-small-cells">
+                                                                    <input type="checkbox" class="mail-checkbox">
+                                                                </td>
+                                                                <td class="inbox-small-cells"><i class="ti-star inbox-started"></i></td>
+                                                                <td class="view-message  dont-show">ZXW23568535</td>
+                                                                <td class="view-message ">'贷款数据库(db_3266)house_loan表数据申请'</td>
+                                                                <td><span class="badge badge-warning pull-right m-t-6">warning</span></td>
+                                                                <td class="view-message text-right">2020-3-10</td>
+                                                            </tr>
+                                                            <tr class="">
+                                                                <td class="inbox-small-cells">
+                                                                    <input type="checkbox" class="mail-checkbox">
+                                                                </td>
+                                                                <td class="inbox-small-cells"><i class="ti-star"></i></td>
+                                                                <td class="view-message  dont-show">ZXW223567773</td>
+                                                                <td class="view-message ">'贷款数据库(db_3266)house_loan表数据申请'</td>
+                                                                <td><span class="badge badge-success pull-right m-t-6">success</span></td>
+                                                                <td class="view-message text-right">2020-2-21</td>
+                                                            </tr>
+                                                            <tr class="">
+                                                                <td class="inbox-small-cells">
+                                                                    <input type="checkbox" class="mail-checkbox">
+                                                                </td>
+                                                                <td class="inbox-small-cells"><i class="ti-star"></i></td>
+                                                                <td class="view-message  dont-show">ZXW235665335</td>
+                                                                <td class="view-message ">'贷款数据库(db_3266)house_loan表数据申请'</td>
+                                                                <td><span class="badge badge-danger pull-right m-t-6">Error</span></td>
+                                                                <td class="view-message text-right">2020-2-21</td>
+                                                            </tr>
+                                                            <tr class="">
+                                                                <td class="inbox-small-cells">
+                                                                    <input type="checkbox" class="mail-checkbox">
+                                                                </td>
+                                                                <td class="inbox-small-cells"><i class="ti-star inbox-started"></i></td>
+                                                                <td class="view-message  dont-show">ZXW237536852</td>
+                                                                <td class="view-message ">'贷款数据库(db_3266)house_loan表数据申请'</td>
+                                                                <td><span class="badge badge-warning pull-right m-t-6">warning</span></td>
+                                                                <td class="view-message text-right">2020-2-21</td>
+                                                            </tr>
+                                                            <tr class="">
+                                                                <td class="inbox-small-cells">
+                                                                    <input type="checkbox" class="mail-checkbox">
+                                                                </td>
+                                                                <td class="inbox-small-cells"><i class="ti-star inbox-started"></i></td>
+                                                                <td class="view-message  dont-show">ZXW235688888</td>
+                                                                <td class="view-message ">'贷款数据库(db_3266)house_loan表数据申请'</td>
+                                                                <td><span class="badge badge-success pull-right m-t-6">success</span></td>
+                                                                <td class="view-message text-right">2020-2-20</td>
+                                                            </tr>
+                                                            <tr class="">
+                                                                <td class="inbox-small-cells">
+                                                                    <input type="checkbox" class="mail-checkbox">
+                                                                </td>
+                                                                <td class="inbox-small-cells"><i class="ti-star inbox-started"></i></td>
+                                                                <td class="view-message  dont-show">ZXW235671257</td>
+                                                                <td class="view-message ">'贷款数据库(db_3266)house_loan表数据申请'</td>
+                                                                <td><span class="badge badge-success pull-right m-t-6">success</span></td>
+                                                                <td class="view-message text-right">2020-2-10</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                            </aside>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                           <div class="footer">
+                                <p>界面数据截止到 <span id="date-time"></span> <a href="#" class="page-refresh">刷新界面</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--搜索-->
+    <div id="search">
+        <button type="button" class="close">×</button>
+        <form>
+            <input type="search" value="" placeholder="type keyword(s) here" />
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+    </div>
+</body>
+<script src="../../static/login/assets/js/lib/jquery.min.js"></script>
+<script src="../../static/login/assets/js/lib/jquery.nanoscroller.min.js"></script>
+<script src="../../static/login/assets/js/lib/menubar/sidebar.js"></script>
+<script src="../../static/login/assets/js/lib/invoice-edit.js"></script>
+<script src="../../static/login/assets/js/lib/bootstrap.min.js"></script>
+<script src="../../static/login/assets/js/lib/toastr/toastr.min.js"></script>
+<script src="../../static/login/assets/js/scripts.js"></script>
+<script src="../../static/login/assets/js/lib/alter_message.js"></script>
+
+<script src="../../static/login/assets/js/lib/sweetalert/sweetalert.min.js"></script>
+<script src="../../static/login/assets/js/lib/sweetalert/zhuxiao.js"></script>
+</html>

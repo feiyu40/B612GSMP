@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>拾方政企联合云平台</title>
+
+    {% load static %}
+    <!-- Styles -->
+    <link href="{% static 'login/assets/css/lib/chartist/chartist.min.css' %}" rel="stylesheet">
+    <link href="{% static 'login/assets/css/lib/font-awesome.min.css'%}" rel="stylesheet">
+    <link href="{% static 'login/assets/css/lib/themify-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'login/assets/css/lib/unix.css' %}" rel="stylesheet">
+    <link href="{% static 'login/assets/css/lib/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'login/assets/css/style.css'%}" rel="stylesheet">
+    <link href="{% static 'login/assets/css/lib/menubar/sidebar.css'%}" rel="stylesheet">
+    <link href="{% static 'login/assets/css/lib/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'login/assets/css/lib/owl.theme.default.min.css' %}" rel="stylesheet">
+    <link href="{% static 'login/assets/css/lib/weather-icons.css'%}" rel="stylesheet">
+
+	</head>
+	<body>
+    <!--左菜单栏-->
+    <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+        <div class="nano">
+            <div class="nano-content">
+                <ul>
+                    <li class="label">Manage</li>
+                    <li class="active"><a class="sidebar-sub-toggle"><i class="ti-home"></i> 数据使用管理 <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                        <ul>
+                            <li><a href="gover">数据使用查询</a></li>
+                            <li><a href="data_charts">数据使用统计</a></li>
+                        </ul>
+                    </li>
+                    <li class="label">Data</li>
+                    <li><a class="sidebar-sub-toggle"><i class="ti-panel"></i>授权数据管理<span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                        <ul>
+                            <li><a href="data_manage">数据明细</a></li>
+                            <li><a href="data_add">添加数据</a></li>
+                        </ul>
+                    </li>
+                    <li class="label">calculate</li>
+                    <li ><a class="sidebar-sub-toggle"><i class="ti-layout-grid2-alt"></i>计算中心<span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                        <ul>
+                            <li><a href="message_fang">数据申请</a></li>
+                            <li><a href="message_ti">提示通知</a></li>
+                        </ul>
+                    </li>
+                    <li class="label">Person</li>
+                    <li ><a class="sidebar-sub-toggle"><i class="ti-user"></i>个人中心<span class="sidebar-collapse-icon ti-angle-down"></span></a>
+                        <ul>
+                            <li><a href="alter_message">个人信息</a></li>
+                            <li><a href="alter_password">修改密码</a></li>
+                            <li class="sweet-confirm"><a >注销账号</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+   <!--上栏-->
+    <div class="header">
+        <div class="pull-left">
+            <div class="logo"><a href="">
+            <img src="../../static/login/assets/images/logo2.png" style="width: 217px;height: 40px;margin-left: 20px;" alt="" />
+            </a></div>
+            <div class="hamburger sidebar-toggle">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </div>
+        </div>
+        <div class="pull-right p-r-15">
+            <ul><!--消息提示-->
+                <li class="header-icon dib"><i class="ti-bell"></i>
+                    <div class="drop-down">
+                        <div class="dropdown-content-heading">
+                            <span class="text-left">Recent Notifications</span>
+                        </div>
+                        <div class="dropdown-content-body">
+                            <ul>
+                                <li class="tishi">
+                                    <a href="#">
+                                        <img class="pull-left m-r-10 avatar-img" src="../../static/login/assets/images/avatar/3.jpg" alt="" />
+                                        <div class="notification-content">
+                                            <small class="notification-timestamp pull-right">02:34 PM</small>
+                                            <div class="notification-heading">Mr. Saifun</div>
+                                            <div class="notification-text">5 members joined today </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="text-center">
+                                    <a href="#" class="more-link">See All</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <!--邮件-->
+                <li class="header-icon dib"><i class="ti-email"></i>
+                    <div class="drop-down">
+                        <div class="dropdown-content-heading">
+                            <span class="text-left">2 New Messages</span>
+                            <a href="email.html"><i class="ti-pencil-alt pull-right"></i></a>
+                        </div>
+                        <div class="dropdown-content-body">
+                            <ul>
+                                <li class="notification-unread">
+                                    <a href="#">
+                                        <img class="pull-left m-r-10 avatar-img" src="../../static/login/assets/images/avatar/1.jpg" alt="" />
+                                        <div class="notification-content">
+                                            <small class="notification-timestamp pull-right">02:34 PM</small>
+                                            <div class="notification-heading">Saiul Islam</div>
+                                            <div class="notification-text">Hi Teddy, Just wanted to let you ...</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="text-center">
+                                    <a href="#" class="more-link">See All</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <!--个人操作-->
+                <li class="header-icon dib"><img class="avatar-img" src="../../static/login/assets/images/touxiang.jpg" alt="" /> <span class="user-avatar">Mr.A <i class="ti-angle-down f-s-10"></i></span>
+                    <div class="drop-down dropdown-profile">
+                        <div class="dropdown-content-heading">
+                            <span class="text-left">Upgrade Now</span>
+                            <p class="trial-day">30 Days Trail</p>
+                        </div>
+                        <div class="dropdown-content-body">
+                            <ul>
+                                <li><a href="alter_password.html"><i class="ti-user"></i> <span>修改密码</span></a></li>
+                                <li onclick="zhuxiao()"><a href="#"><i class="ti-wallet" ></i> <span>账号注销</span></a></li>
+                                <li><a href="login.html"><i class="ti-write"></i> <span>账号退出</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--内容-->
+    <div class="content-wrap">
+        <div class="main">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-8 p-r-0 title-margin-right">
+                        <div class="page-header">
+                            <div class="page-title">
+                                <h1>Hello, <span>Welcome Here</span></h1>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /# column -->
+                    <div class="col-lg-4 p-l-0 title-margin-left">
+                        <div class="page-header">
+                            <div class="page-title">
+                                <ol class="breadcrumb text-right">
+                                    <li><a href="#">数据使用管理</a></li>
+                                    <li class="active">数据使用统计</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /# column -->
+                </div>
+                <!-- /# row -->
+                <section id="main-content">
+                    <!--访问量统计-->
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="card">
+                                <div class="stat-widget-eight">
+                                    <div class="stat-header">
+                                        <div class="header-title pull-left">发起申请量</div>
+                                        <div class="card-option drop-menu pull-right">
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="stat-content">
+                                        <div class="pull-left">
+                                            <i class="ti-arrow-up color-success"></i>
+                                            <span class="stat-digit"> 14,2158</span>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card">
+                                <div class="stat-widget-eight">
+                                    <div class="stat-header">
+                                        <div class="header-title pull-left">同意申请量</div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="stat-content">
+                                        <div class="pull-left">
+                                            <i class="ti-arrow-up color-danger"></i><!--down-->
+                                            <span class="stat-digit"> 1,158</span>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card">
+                                <div class="stat-widget-eight">
+                                    <div class="stat-header">
+                                        <div class="header-title pull-left">最频繁申请个人数据</div>
+                                        <div class="card-option drop-menu pull-right">
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="stat-content">
+                                        <div class="pull-left">
+                                            <span class="stat-digit"> 公积金缴纳额</span>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card">
+                                <div class="stat-widget-eight">
+                                    <div class="stat-header">
+                                        <div class="header-title pull-left">最频繁申请企业数据</div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="stat-content">
+                                        <div class="pull-left">
+                                            <span class="stat-digit"> 企业市值</span>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <!--访问量的图表-->
+                                <div class="col-lg-6">
+                                    <div class="card alert">
+                                        <div class="card-header" style="margin-bottom: 2%;">
+                                            <h4 class="m-l-5">数据调用情况表</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="ct-svg-chart"></div>
+                                            <span style="font-size: 15px;color: #1DE9B6;margin-left: 10%;">■——个人申请数据&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                                            <span style="font-size: 15px;color: #03A9F5"> ■——企业申请数据&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                                            <span style="font-size: 15px;color:#A389D5"> ■——其他数据&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--排行榜-->
+                        		<div class="col-lg-6">
+                                    <div class="card alert">
+                                        <div class="card-header">
+                                            <h4 class="m-l-5">数据日使用排行</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-hover ">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>数据</th>
+                                                            <th>申请次数</th>
+                                                            <th>授权计算次数</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>信用账户还款记录</td>
+                                                            <td>1,372</td>
+                                                            <td>1,032</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>公积金社保数据</td>
+                                                            <td>1,206</td>
+                                                            <td>1,084</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>消费贷款</td>
+                                                            <td>968</td>
+                                                            <td>902</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>个人所得税额</td>
+                                                            <td>924</td>
+                                                            <td>877</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>企业注册资金</td>
+                                                            <td>889</td>
+                                                            <td>762</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <span style="color: #FFFFFF"> .</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /# column -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+         <!--尾注释-->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="footer">
+                    <p>界面数据截止到 <span id="date-time"></span> <a href="#" class="page-refresh">刷新界面</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--搜索-->
+    <div id="search">
+        <button type="button" class="close">×</button>
+        <form>
+            <input type="search" value="" placeholder="type keyword(s) here" />
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+    </div>
+	</body>
+	<script src="../../static/login/assets/js/lib/jquery.min.js"></script>
+    <!-- jquery vendor -->
+    <script src="../../static/login/assets/js/lib/jquery.nanoscroller.min.js"></script>
+    <!-- nano scroller -->
+    <script src="../../static/login/assets/js/lib/menubar/sidebar.js"></script>
+    <script src="../../static/login/assets/js/lib/preloader/pace.min.js"></script>
+    <!-- sidebar -->
+    <script src="../../static/login/assets/js/lib/bootstrap.min.js"></script>
+    <!-- bootstrap -->
+    <script src="../../static/login/assets/js/lib/chartist/chartist.min.js"></script>
+    <script src="../../static/login/assets/js/lib/chartist/chartist-init.js"></script>
+    <script src="../../static/login/assets/js/scripts.js"></script>
+</html>

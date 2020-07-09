@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>B612信息公开监督管理平台</title>
+
+    <!-- ================= Favicon ================== -->
+    <!-- Styles -->
+
+    <link rel="stylesheet" href="cj/assets/css/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="cj/assets/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" href="cj/assets/css/lib/themify-icons.css">
+    <link rel="stylesheet" href="cj/assets/css/lib/unix.css">
+    <link rel="stylesheet" href="cj/assets/css/style.css">
+</head>
+
+<body class="bg-primary">
+<div class="unix-login">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-lg-offset-3">
+                <div class="login-content">
+                    <div class="login-form">
+                        <h3 style="color: #5d7d8c;">Regist Account</h3>
+                        <form>
+                            <div class="form-group">
+                                <label style="font-family: Georgia;color: #5d7d8c;" >邮箱</label>
+                                <div class="row">
+                                    <input type="email" id="regist_email" class="form-control" style="width: 78%;float: left;margin-left: 1%;" placeholder="请输入邮箱地址">
+                                    <button type="button"  class="btn btn-primary m-b-10 m-l-5" id="regist_post_email" style="width: 18%;padding: 10px;">发送验证号</button>
+                                </div>
+                            </div>
+                            <div class="error_box" id="error_regist_email" style="margin-bottom: 2%;"></div>
+                            <div class="form-group">
+                                <label style="font-family: Georgia;color: #5d7d8c;">验证码</label>
+                                <input  id="regist_email_yanzheng" class="form-control" placeholder="请输入收到邮件验证码">
+                            </div>
+                            <div class="form-group">
+                                <label style="font-family: Georgia;color: #5d7d8c;">用户名</label>
+                                <input id="regist_name" class="form-control" placeholder="请输入用户名（3-20个字符）">
+                            </div>
+                            <div class="form-group">
+                                <label style="font-family: Georgia;color: #5d7d8c;">密码</label>
+                                <input type="password" id="regist_password" class="form-control" placeholder="密码（8-20个字符）">
+                            </div>
+                            <div class="form-group">
+                                <label style="font-family: Georgia;color: #5d7d8c;">确认密码</label>
+                                <input type="password" id="regist_password2" class="form-control" placeholder="再次输入密码">
+                            </div>
+                            <div class="form-group">
+                                <label style="font-family: Georgia;color: #5d7d8c;">校验码</label>
+                                <input class="form-control" id="regist_key" placeholder="请输入身份校验码">
+                            </div>
+                            <div class="checkbox">
+                                <label style="margin-left: 70%;">
+                                    <input type="checkbox"> 同意用户及隐私协议
+                                </label>
+                            </div>
+                            <div class="error_box" id="error_regist"></div>
+                            <button type="button" class="btn btn-primary btn-rounded m-b-30 m-t-30" id="regist"><span>注      册</span></button>
+                            <div class="register-link m-t-15 text-center" >
+                                <p>已有账号? <a href=".">登录</a></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="cj/assets/js/lib/jquery.min.js"></script>
+<script src="cj/assets/js/lib/register.js"></script>
+
+</html>
